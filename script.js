@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroParticles();
     initStatsCounter();
     init3DTilt();
+    initScrollReveal();
     initMobileNav();
     initModals();
     initThemeToggle();
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
    1. HERO GOLDEN PARTICLES CANVAS
    ========================================================================== */
 function initHeroParticles() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const canvas = document.getElementById("heroParticles");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -86,7 +88,7 @@ function initHeroParticles() {
                 p.y += (dy / dist) * force * 1.5;
             }
 
-            // Draw glowing gold particle
+            // Draw subtle gold dust particles
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 200, 87, ${p.alpha})`;
@@ -94,6 +96,22 @@ function initHeroParticles() {
             ctx.shadowColor = "#FFC857";
             ctx.fill();
             ctx.shadowBlur = 0; // reset
+
+            // Connect close particles with delicate faint gold threads
+            for (let j = particles.indexOf(p) + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const cdx = p.x - p2.x;
+                const cdy = p.y - p2.y;
+                const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
+                if (cdist < 60) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(255, 200, 87, ${(1 - cdist / 60) * 0.12})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+            }
         }
 
         requestAnimationFrame(animate);
@@ -154,6 +172,34 @@ function animateCount(element, target, duration) {
     requestAnimationFrame(step);
 }
 
+
+/* ==========================================================================
+   2.5 SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+function initScrollReveal() {
+    const reveals = document.querySelectorAll(".reveal-on-scroll");
+    if (!reveals.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        reveals.forEach((el) => el.classList.add("revealed"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+}
+
 /* ==========================================================================
    3. 3D TILT EFFECT ON CARDS
    ========================================================================== */
@@ -161,7 +207,7 @@ function init3DTilt() {
     // Only apply on non-touch devices with fine pointers
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
-    const cards = document.querySelectorAll(".service-card, .project-card, .doc-card");
+    const cards = document.querySelectorAll(".service-card, .currently-card, .project-card, .doc-card");
 
     cards.forEach((card) => {
         card.addEventListener("mousemove", (e) => {

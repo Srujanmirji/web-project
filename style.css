@@ -137,10 +137,17 @@ body::after {
     pointer-events: none;
     z-index: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(rgba(255, 200, 87, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 200, 87, 0.025) 1px, transparent 1px);
     background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse at top, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse at 50% 30%, black 35%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 35%, transparent 80%);
+    animation: grid-drift 40s linear infinite;
+}
+
+@keyframes grid-drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 56px 56px; }
 }
 
 a {
@@ -182,11 +189,25 @@ img, svg {
 
 .container {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0 clamp(16px, 4vw, 40px);
     position: relative;
     z-index: 2;
+}
+
+
+/* Scroll Reveal Utilities */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .gold-gradient-text {
@@ -594,12 +615,12 @@ img, svg {
 
 .hero-title {
     font-family: var(--font-head);
-    font-size: clamp(2.8rem, 6.2vw, 4.8rem);
+    font-size: clamp(3.2rem, 6.8vw, 5rem);
     font-weight: 800;
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     color: var(--text-pure);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .hero-subtitle {
@@ -665,6 +686,41 @@ img, svg {
     justify-content: center;
     align-items: center;
     min-height: 440px;
+}
+
+
+/* SVG Orbital Rings Behind Laptop */
+.svg-orbital-rings {
+    pointer-events: none;
+}
+
+.svg-orbit-outer {
+    transform-origin: 280px 180px;
+    animation: spin-orbit-slow 42s linear infinite;
+}
+
+.svg-orbit-inner {
+    transform-origin: 280px 180px;
+    animation: spin-orbit-rev 28s linear infinite;
+}
+
+.svg-orbit-main {
+    animation: pulse-orbit 4s ease-in-out infinite alternate;
+}
+
+@keyframes spin-orbit-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-orbit-rev {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes pulse-orbit {
+    0% { opacity: 0.8; stroke-width: 2.5; }
+    100% { opacity: 1; stroke-width: 3.5; }
 }
 
 .laptop-scene {
@@ -1014,12 +1070,15 @@ img, svg {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
+    align-items: stretch;
 }
 
 .service-card {
     padding: 26px 22px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
 }
 
 /* First card (Product Management) highlighted as active reference card */
@@ -1072,8 +1131,17 @@ img, svg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(165deg, rgba(26, 23, 18, 0.94) 0%, rgba(14, 14, 18, 0.96) 100%);
+    border: 1px solid rgba(255, 200, 87, 0.38);
+    box-shadow: var(--shadow-card), inset 0 0 35px rgba(255, 200, 87, 0.06);
+}
+
+.currently-card:hover {
+    border-color: rgba(255, 200, 87, 0.7);
+    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 200, 87, 0.22);
 }
 
 .currently-card .status-indicator {
@@ -1149,10 +1217,48 @@ img, svg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 340px;
+    height: 100%;
+    min-height: 380px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.project-card-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-type-tag {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--gold-primary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.project-type-tag.sm-tag { color: #C084FC; }
+.project-type-tag.tanvo-tag { color: #FB923C; }
+
+/* Individual Project Identities on Hover */
+.project-card.bnb-card:hover {
+    border-color: rgba(255, 200, 87, 0.65);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 200, 87, 0.2);
+}
+
+.project-card.sm-card:hover {
+    border-color: rgba(168, 85, 247, 0.65);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.project-card.tanvo-card:hover {
+    border-color: rgba(249, 115, 22, 0.65);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(249, 115, 22, 0.2);
 }
 
 .project-top-row {
@@ -1252,12 +1358,17 @@ img, svg {
 .project-visual-graphic {
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 130px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-top: auto;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: #0A0A0E;
+    margin-top: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #08080C;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s;
+}
+
+.project-card:hover .project-visual-graphic {
+    transform: scale(1.03);
 }
 
 .project-visual-graphic svg {
@@ -1336,8 +1447,10 @@ img, svg {
 
 .gold-card-stack {
     position: relative;
-    width: 130px;
-    height: 170px;
+    width: 135px;
+    height: 175px;
+    perspective: 700px;
+    transform-style: preserve-3d;
 }
 
 .stack-card {
@@ -1345,36 +1458,161 @@ img, svg {
     inset: 0;
     border-radius: 12px;
     border: 1px solid rgba(255, 200, 87, 0.4);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-    transition: transform 0.3s ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
 }
 
 .stack-card.card-back {
-    background: #1A170F;
-    transform: rotate(-10deg) translate(-10px, 5px);
-    opacity: 0.6;
+    background: #17140D;
+    transform: rotate(-10deg) translate(-10px, 6px);
+    opacity: 0.55;
 }
 
 .stack-card.card-mid {
-    background: #252014;
-    transform: rotate(-5deg) translate(-5px, 2px);
+    background: #241D12;
+    transform: rotate(-5deg) translate(-5px, 3px);
     opacity: 0.8;
 }
 
 .stack-card.card-front {
-    background: linear-gradient(145deg, #2E2718 0%, #15130D 100%);
-    border-color: var(--gold-primary);
+    background: linear-gradient(145deg, #2D2516 0%, #16130D 100%);
+    border: 1.5px solid var(--gold-primary);
     transform: rotate(2deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    box-shadow: 0 15px 35px rgba(255, 200, 87, 0.25);
+    padding: 16px 12px;
+    box-shadow: 0 16px 40px rgba(255, 200, 87, 0.22);
 }
 
 .doc-card:hover .stack-card.card-front {
-    transform: rotate(0deg) scale(1.05);
+    transform: rotate(0deg) translateY(-4px) scale(1.05);
+    box-shadow: 0 22px 50px rgba(255, 200, 87, 0.35);
+}
+
+.doc-card:hover .stack-card.card-mid {
+    transform: rotate(-8deg) translate(-12px, 4px);
+}
+
+.doc-card:hover .stack-card.card-back {
+    transform: rotate(-15deg) translate(-20px, 8px);
+}
+
+.card-sim-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 80%;
+    margin-top: 14px;
+}
+
+.sim-line {
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sim-line.gold { background: rgba(255, 200, 87, 0.5); width: 85%; }
+.sim-line.short { width: 50%; }
+
+/* Layered Paper Bio-data Stack */
+.paper-doc-stack {
+    position: relative;
+    width: 145px;
+    height: 185px;
+    perspective: 700px;
+}
+
+.paper-sheet {
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: #15151B;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.paper-sheet.sheet-3 {
+    transform: rotate(10deg) translate(8px, 6px);
+    opacity: 0.4;
+}
+
+.paper-sheet.sheet-2 {
+    transform: rotate(5deg) translate(4px, 3px);
+    opacity: 0.7;
+}
+
+.paper-sheet.sheet-1 {
+    background: linear-gradient(180deg, #1F1F27 0%, #111116 100%);
+    border: 1.5px solid rgba(255, 200, 87, 0.45);
+    transform: rotate(0deg);
+    padding: 12px 10px;
+    box-shadow: 0 16px 42px rgba(255, 200, 87, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doc-card:hover .paper-sheet.sheet-1 {
+    transform: rotate(-2deg) translateY(-4px) scale(1.04);
+}
+
+.doc-card:hover .paper-sheet.sheet-2 {
+    transform: rotate(8deg) translate(8px, 4px);
+}
+
+.doc-card:hover .paper-sheet.sheet-3 {
+    transform: rotate(16deg) translate(16px, 8px);
+}
+
+.paper-header-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 200, 87, 0.3);
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.paper-header-text {
+    font-family: var(--font-head);
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    letter-spacing: 0.06em;
+}
+
+.paper-date-text {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+}
+
+.paper-body-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.paper-sublines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+.paper-seal-badge {
+    align-self: flex-end;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 200, 87, 0.5);
+    background: rgba(255, 200, 87, 0.12);
+    color: var(--gold-primary);
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
 }
 
 .card-sm-pill {
@@ -2053,4 +2291,30 @@ img, svg {
 
 .laptop-scene:hover .laptop-scene-svg {
     transform: translateY(-4px) scale(1.02);
+}
+
+
+/* ==========================================================================
+   12. ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .bg-grid-mesh,
+    .svg-orbit-outer,
+    .svg-orbit-inner,
+    .svg-orbit-main,
+    .floating-building-card,
+    .golden-halo,
+    .status-dot {
+        animation: none !important;
+    }
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
