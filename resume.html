@@ -4,64 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Srujan Mirji</title>
+    <meta name="description" content="Resume of Srujan Mirji - AI Product Manager Intern, Technical Project Management, Experience, Projects and Skills.">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
-    <a class="brand" href="index.html" aria-label="Srujan Mirji home">SM</a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="resume.html" aria-current="page">Resume</a>
-        <a href="biodata.html">Bio-data</a>
+<div class="bg-grid-mesh"></div>
+
+<!-- ==========================================================================
+     NAVIGATION BAR
+     ========================================================================== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-left">
+            <a href="index.html" class="nav-brand" aria-label="Srujan Mirji Home">
+                <span class="brand-badge">SM</span>
+                <span class="brand-name">Srujan Mirji</span>
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <div class="nav-pill">
+                <a href="index.html">Home</a>
+                <a href="resume.html" class="active">Resume</a>
+                <a href="biodata.html">Bio-data</a>
+                <a href="index.html#projects">Projects</a>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </button>
+            <a href="#contact" class="btn btn-gold btn-sm" id="openContactBtnNav">Get in Touch ↗</a>
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </div>
 </nav>
 
-<header class="page">
-    <h1>My Resume</h1>
-    <p class="tagline">AI Product Manager Intern | Technical Project Management</p>
-    <div class="actions">
-        <a class="btn btn-primary" href="Srujan_Mirji_Resume.pdf" download>⬇ Download PDF</a>
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html">Home</a>
+    <a href="resume.html" class="active">Resume</a>
+    <a href="biodata.html">Bio-data</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="#contact" class="btn btn-gold" id="mobileContactLink">Get in Touch ↗</a>
+</div>
+
+<!-- ==========================================================================
+     RESUME HEADER
+     ========================================================================== -->
+<header class="page-header">
+    <div class="container">
+        <span class="status-pill"><span class="status-dot"></span> Curriculum Vitae</span>
+        <h1 class="page-title">My <span class="gold-gradient-text">Resume</span></h1>
+        <p class="page-tagline">AI Product Manager Intern &nbsp;|&nbsp; Technical Project Management</p>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-gold" href="Srujan_Mirji_Resume.pdf" download>Download PDF ⤓</a>
+            <button onclick="window.print()" class="btn btn-glass">Print Document 🖨️</button>
+        </div>
     </div>
 </header>
 
-<main>
+<main class="container" style="display:flex;flex-direction:column;gap:30px;padding-bottom:70px;">
 
-    <section class="card">
-        <h2>Personal Information</h2>
-        <div class="grid info">
-            <div><b>Name</b><span>Srujan Mirji</span></div>
-            <div><b>Email</b><a href="mailto:srujanmirji10@gmail.com">srujanmirji10@gmail.com</a></div>
-            <div><b>Phone</b><span>+91 96633 41218</span></div>
-            <div><b>Address</b><span>Hubballi, Karnataka, India</span></div>
-            <div><b>LinkedIn</b><a href="https://linkedin.com/in/srujanmirji" target="_blank" rel="noopener">linkedin.com/in/srujanmirji</a></div>
-            <div><b>GitHub</b><a href="https://github.com/Srujanmirji" target="_blank" rel="noopener">github.com/Srujanmirji</a></div>
+    <!-- Personal Information Cards -->
+    <section class="glass-card" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:20px;"><span class="slash">/</span> Personal Information</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <b>Name</b>
+                <span>Srujan Mirji</span>
+            </div>
+            <div class="info-card">
+                <b>Email</b>
+                <a href="mailto:srujanmirji10@gmail.com" class="gold-accent-text">srujanmirji10@gmail.com</a>
+            </div>
+            <div class="info-card">
+                <b>Phone</b>
+                <span>+91 96633 41218</span>
+            </div>
+            <div class="info-card">
+                <b>Address</b>
+                <span>Hubballi, Karnataka, India</span>
+            </div>
+            <div class="info-card">
+                <b>LinkedIn</b>
+                <a href="https://linkedin.com/in/srujanmirji" target="_blank" rel="noopener" class="gold-accent-text">linkedin.com/in/srujanmirji</a>
+            </div>
+            <div class="info-card">
+                <b>GitHub</b>
+                <a href="https://github.com/Srujanmirji" target="_blank" rel="noopener" class="gold-accent-text">github.com/Srujanmirji</a>
+            </div>
         </div>
     </section>
 
-    <section class="card">
-        <h2>Summary</h2>
-        <p>
-            Computer Science undergraduate and product builder who takes AI products from
-            idea to shipped. Runs a web development agency with a team of 6, delivering 4
-            client projects end to end from discovery and scoping through pricing, timelines,
-            and launch. Builds products with AI-assisted development across multi-agent AI,
-            marketplaces, and mobile. Seeking product and technical project management internships.
+    <!-- Professional Summary -->
+    <section class="glass-card" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:16px;"><span class="slash">/</span> Executive Summary</h2>
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.75;margin:0;">
+            Computer Science undergraduate and product builder who takes AI products from idea to shipped. Runs a web development agency with a team of 6, delivering 4 client projects end to end from discovery and scoping through pricing, timelines, and launch. Builds products with AI-assisted development across multi-agent AI, marketplaces, and mobile. Seeking product and technical project management internships.
         </p>
     </section>
 
-    <section class="card">
-        <h2>Experience</h2>
-        <div class="timeline">
+    <!-- Experience Timeline -->
+    <section class="glass-card" id="experience" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:28px;"><span class="slash">/</span> Work Experience</h2>
 
-            <div class="timeline-item">
-                <h3>Founder and Product Lead</h3>
-                <p class="meta">Tanvo Tech (Web Development Agency) · Hubballi, India · Aug 2026 - Present</p>
-                <ul>
+        <div class="timeline-container">
+            <!-- Role 1 -->
+            <div class="timeline-entry">
+                <h3 class="timeline-title">Founder and Product Lead</h3>
+                <div class="timeline-meta">Tanvo Tech (Web Development Agency) &nbsp;·&nbsp; Hubballi, India &nbsp;·&nbsp; Aug 2026 – Present</div>
+                <ul class="timeline-list">
                     <li>Run a web development agency delivering websites and digital products for clients, owning the full lifecycle from first conversation to launch and post-launch support.</li>
                     <li>Own client discovery, requirements, scope, pricing, and delivery timelines across 4 client projects.</li>
                     <li>Convert client requirements into written scopes, build plans, and release milestones, making scope-versus-timeline trade-off calls as projects move.</li>
@@ -69,143 +131,302 @@
                 </ul>
             </div>
 
-            <div class="timeline-item">
-                <h3>Developer's Team Intern</h3>
-                <p class="meta">AXILEX Group of Companies · India · May 2026 - Aug 2026</p>
-                <ul>
+            <!-- Role 2 -->
+            <div class="timeline-entry">
+                <h3 class="timeline-title">Developer's Team Intern</h3>
+                <div class="timeline-meta">AXILEX Group of Companies &nbsp;·&nbsp; India &nbsp;·&nbsp; May 2026 – Aug 2026</div>
+                <ul class="timeline-list">
                     <li>Supported the development team on product initiatives, converting requirements into deliverable tasks and tracking them through to release.</li>
                     <li>Coordinated with team members to clarify scope, unblock issues, and keep project documentation current.</li>
                 </ul>
             </div>
 
-            <div class="timeline-item">
-                <h3>Campus Ambassador</h3>
-                <p class="meta">GeeksforGeeks · Hubballi, India · Jan 2026 - Jun 2026</p>
-                <ul>
+            <!-- Role 3 -->
+            <div class="timeline-entry">
+                <h3 class="timeline-title">Campus Ambassador</h3>
+                <div class="timeline-meta">GeeksforGeeks &nbsp;·&nbsp; Hubballi, India &nbsp;·&nbsp; Jan 2026 – Jun 2026</div>
+                <ul class="timeline-list">
                     <li>Organized 3 hackathons and technical workshops across colleges, owning planning, college coordination, outreach, and on-day execution.</li>
                     <li>Represented GeeksforGeeks as official campus ambassador, driving student participation across the campus community.</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <section class="card">
-        <h2>Educational Qualification</h2>
-        <div class="table-wrap">
-            <table>
-                <tr>
-                    <th>Qualification</th>
-                    <th>Institution</th>
-                    <th>Year</th>
-                </tr>
-                <tr>
-                    <td>B.E., Computer Science and Engineering</td>
-                    <td>Jain College of Engineering and Technology, Hubballi</td>
-                    <td>Sep 2024 - Sep 2028 (Expected)</td>
-                </tr>
+    <!-- Education -->
+    <section class="glass-card" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:20px;"><span class="slash">/</span> Educational Qualification</h2>
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>B.E., Computer Science and Engineering</strong></td>
+                        <td>Jain College of Engineering and Technology, Hubballi</td>
+                        <td>Sep 2024 – Sep 2028 (Expected)</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </section>
 
-    <section class="card">
-        <h2>Projects</h2>
-        <div class="grid projects">
+    <!-- Projects Portfolio -->
+    <section class="glass-card" id="projects" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:24px;"><span class="slash">/</span> Built &amp; Shipped Projects</h2>
 
-            <article class="tile">
-                <div class="icon">🛡️</div>
-                <h3>AegisAI</h3>
-                <p>Multi-Agent AI Copilot</p>
-                <ul class="tags">
-                    <li>Python</li><li>FastAPI</li><li>LangGraph</li><li>Three.js</li>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr));gap:20px;">
+            <!-- Buy N Build (BNB) -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#E09520;color:#0A0A0A;font-weight:800;font-size:0.95rem;">B</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">Buy N Build (BNB)</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Construction Materials Marketplace &amp; SaaS</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">Razorpay</span>
+                </div>
+                <ul class="timeline-list">
+                    <li>Designed an end-to-end B2B construction materials marketplace connecting builders, suppliers, and logistics partners.</li>
+                    <li>Integrated real-time order tracking, automated quotation requests, and multi-tier vendor inventory management.</li>
+                    <li>Shipped secure payment gateway flows with Razorpay and robust role-based access control with Supabase.</li>
                 </ul>
-                <ul>
+            </div>
+
+            <!-- StudentsMate -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#7C3AED;color:#FFF;font-size:0.95rem;">🎓</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">StudentsMate</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">AI-Powered Academic Command Center</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">LangGraph</span>
+                    <span class="tech-tag">Gemini</span>
+                </div>
+                <ul class="timeline-list">
+                    <li>Built an intelligent workspace helping university students organize notes, syllabus deadlines, and exam preparation.</li>
+                    <li>Integrated autonomous AI study agents that synthesize lecture notes, generate flashcards, and curate practice quizzes.</li>
+                    <li>Architected agent memory workflows in LangGraph to track individual student learning curves and weakness spots.</li>
+                </ul>
+            </div>
+
+            <!-- Tanvo Tech Agency Projects -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#C2410C;color:#FFF;font-weight:800;font-size:0.95rem;">T</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">Tanvo Tech Client Solutions</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Web Development Agency Products</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Vercel</span>
+                </div>
+                <ul class="timeline-list">
+                    <li>Shipped 4 client web applications across e-commerce, portfolio systems, and booking platforms with high performance.</li>
+                    <li>Established standard component libraries, automated deployment pipelines on Vercel, and SEO optimization.</li>
+                </ul>
+            </div>
+            <!-- AegisAI -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:1.4rem;">🛡️</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">AegisAI</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Multi-Agent AI Copilot</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">LangGraph</span>
+                    <span class="tech-tag">Three.js</span>
+                </div>
+                <ul class="timeline-list">
                     <li>Defined an enterprise copilot where six specialized agents handle planning, knowledge retrieval, operations, maintenance, analytics, and risk validation.</li>
                     <li>Mapped agent orchestration flows in LangGraph, deciding what each agent owns and where a human stays in the loop.</li>
                     <li>Shipped an interactive WebGL interface so operators can see and control agent activity in real time.</li>
                 </ul>
-            </article>
+            </div>
 
-            <article class="tile">
-                <div class="icon">🔁</div>
-                <h3>SkillSwap</h3>
-                <p>Peer-to-Peer Skill Marketplace</p>
-                <ul class="tags">
-                    <li>Next.js</li><li>TypeScript</li><li>MongoDB</li>
-                </ul>
-                <ul>
+            <!-- SkillSwap -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:1.4rem;">🔁</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">SkillSwap</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Peer-to-Peer Skill Marketplace</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+                <ul class="timeline-list">
                     <li>Designed a two-sided marketplace where users trade skills using time credits instead of money.</li>
                     <li>Addressed the cold-start problem with a reputation and verification system that bootstraps trust between strangers.</li>
                     <li>Scoped and shipped onboarding, profiles, discovery, search, messaging, wallet, and admin controls.</li>
                 </ul>
-            </article>
+            </div>
 
-            <article class="tile">
-                <div class="icon">💳</div>
-                <h3>SubTracker</h3>
-                <p>Subscription Management Platform</p>
-                <ul class="tags">
-                    <li>React</li><li>Node.js</li><li>MySQL</li>
-                </ul>
-                <ul>
+            <!-- SubTracker -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:1.4rem;">💳</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">SubTracker</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Subscription Management Platform</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <ul class="timeline-list">
                     <li>Built a subscription tracker with spending analytics, budget alerts, and shared-expense settlement.</li>
                     <li>Framed the dashboard around metrics users act on: spend trends, savings opportunities, category breakdown, and renewal alerts.</li>
                 </ul>
-            </article>
+            </div>
 
-            <article class="tile">
-                <div class="icon">👁️</div>
-                <h3>Smart Vision Assist</h3>
-                <p>Offline Accessibility App</p>
-                <ul class="tags">
-                    <li>Kotlin</li><li>TensorFlow Lite</li><li>YOLOv8</li>
-                </ul>
-                <ul>
+            <!-- Smart Vision Assist -->
+            <div class="glass-card" style="padding:22px;background:rgba(255,255,255,0.02);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:1.4rem;">👁️</span>
+                    <h3 style="font-family:var(--font-head);font-size:1.2rem;color:#FFF;">Smart Vision Assist</h3>
+                </div>
+                <p style="color:var(--gold-primary);font-size:0.86rem;margin-bottom:12px;">Offline Accessibility App</p>
+                <div class="project-tags" style="margin-bottom:14px;">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">TensorFlow Lite</span>
+                    <span class="tech-tag">YOLOv8</span>
+                </div>
+                <ul class="timeline-list">
                     <li>Built an offline Android app that detects objects and speaks spatial guidance for visually impaired users.</li>
                     <li>Chose on-device inference so the app works with no internet connection and no user data leaving the phone.</li>
                 </ul>
-            </article>
-
+            </div>
         </div>
     </section>
 
-    <section class="card">
-        <h2>Skills</h2>
+    <!-- Skills Grouping -->
+    <section class="glass-card" style="padding:clamp(22px,4vw,36px);">
+        <h2 class="section-tag" style="margin-bottom:24px;"><span class="slash">/</span> Technical &amp; Leadership Skills</h2>
 
-        <div class="skill-group">
-            <h3>Product Management</h3>
-            <ul class="tags">
-                <li>Product discovery</li><li>Requirement gathering</li><li>PRDs</li><li>User stories</li><li>Scoping</li><li>Roadmapping</li><li>Prioritization</li><li>Sprint planning</li><li>Backlog management</li><li>Cross-functional coordination</li><li>Timeline &amp; risk tracking</li><li>Stakeholder communication</li><li>KPI definition</li>
-            </ul>
-        </div>
+        <div style="display:flex;flex-direction:column;gap:24px;">
+            <div>
+                <h4 style="color:var(--gold-primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Product Management</h4>
+                <div class="project-tags" style="margin:0;">
+                    <span class="tech-tag">Product discovery</span>
+                    <span class="tech-tag">Requirement gathering</span>
+                    <span class="tech-tag">PRDs</span>
+                    <span class="tech-tag">User stories</span>
+                    <span class="tech-tag">Scoping</span>
+                    <span class="tech-tag">Roadmapping</span>
+                    <span class="tech-tag">Prioritization</span>
+                    <span class="tech-tag">Sprint planning</span>
+                    <span class="tech-tag">Backlog management</span>
+                    <span class="tech-tag">Cross-functional coordination</span>
+                    <span class="tech-tag">Timeline &amp; risk tracking</span>
+                    <span class="tech-tag">Stakeholder communication</span>
+                    <span class="tech-tag">KPI definition</span>
+                </div>
+            </div>
 
-        <div class="skill-group">
-            <h3>AI</h3>
-            <ul class="tags">
-                <li>LLM applications</li><li>Multi-agent systems</li><li>Agent orchestration (LangGraph)</li><li>Prompt engineering</li><li>AI-assisted development</li><li>Computer vision (YOLOv8, TensorFlow Lite)</li>
-            </ul>
-        </div>
+            <div>
+                <h4 style="color:var(--gold-primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Artificial Intelligence</h4>
+                <div class="project-tags" style="margin:0;">
+                    <span class="tech-tag">LLM applications</span>
+                    <span class="tech-tag">Multi-agent systems</span>
+                    <span class="tech-tag">Agent orchestration (LangGraph)</span>
+                    <span class="tech-tag">Prompt engineering</span>
+                    <span class="tech-tag">AI-assisted development</span>
+                    <span class="tech-tag">Computer vision (YOLOv8, TensorFlow Lite)</span>
+                </div>
+            </div>
 
-        <div class="skill-group">
-            <h3>Technical</h3>
-            <ul class="tags">
-                <li>React</li><li>Next.js</li><li>TypeScript</li><li>Python</li><li>FastAPI</li><li>Node.js</li><li>SQL</li><li>PostgreSQL</li><li>MongoDB</li><li>REST APIs</li><li>Git</li><li>Docker</li><li>Vercel</li>
-            </ul>
-        </div>
+            <div>
+                <h4 style="color:var(--gold-primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Technical Stack</h4>
+                <div class="project-tags" style="margin:0;">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Vercel</span>
+                </div>
+            </div>
 
-        <div class="skill-group">
-            <h3>Tools and Methods</h3>
-            <ul class="tags">
-                <li>Agile</li><li>Scrum</li><li>Kanban</li><li>Jira</li><li>Confluence</li><li>Trello</li><li>Notion</li><li>Figma</li><li>Slack</li><li>Google Workspace</li><li>Excel</li>
-            </ul>
+            <div>
+                <h4 style="color:var(--gold-primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Tools &amp; Methods</h4>
+                <div class="project-tags" style="margin:0;">
+                    <span class="tech-tag">Agile</span>
+                    <span class="tech-tag">Scrum</span>
+                    <span class="tech-tag">Kanban</span>
+                    <span class="tech-tag">Jira</span>
+                    <span class="tech-tag">Confluence</span>
+                    <span class="tech-tag">Trello</span>
+                    <span class="tech-tag">Notion</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">Slack</span>
+                    <span class="tech-tag">Google Workspace</span>
+                    <span class="tech-tag">Excel</span>
+                </div>
+            </div>
         </div>
     </section>
 
 </main>
 
-<footer>
-    <p>&copy; 2026 Srujan Mirji · Built with HTML, CSS &amp; JavaScript</p>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <span class="brand-badge">SM</span>
+                <div class="footer-brand-text">
+                    <h4>Srujan Mirji</h4>
+                    <span class="footer-tagline">Build &nbsp;·&nbsp; Ship &nbsp;·&nbsp; Scale</span>
+                </div>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="resume.html">Resume</a>
+                <a href="biodata.html">Bio-data</a>
+                <a href="index.html#projects">Projects</a>
+            </nav>
+
+            <div class="footer-socials">
+                <a href="https://github.com/Srujanmirji" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/srujanmirji" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:srujanmirji10@gmail.com" class="social-link" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Srujan Mirji &nbsp;·&nbsp; Built with vanilla HTML5, CSS3 &amp; JavaScript</p>
+        </div>
+    </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
