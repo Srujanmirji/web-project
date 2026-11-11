@@ -572,9 +572,9 @@ img, svg {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 0.92fr 1.28fr;
     align-items: center;
-    gap: clamp(30px, 5vw, 60px);
+    gap: clamp(20px, 3vw, 40px);
     position: relative;
     z-index: 2;
 }
@@ -682,12 +682,13 @@ img, svg {
 /* Hero Right Column (3D Laptop & Scene) */
 .hero-right {
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
+    gap: clamp(16px, 2.5vw, 36px);
     min-height: 440px;
+    width: 100%;
 }
-
 
 /* SVG Orbital Rings Behind Laptop */
 .svg-orbital-rings {
@@ -726,8 +727,9 @@ img, svg {
 .laptop-scene {
     position: relative;
     width: 100%;
-    max-width: 520px;
+    max-width: 440px;
     perspective: 1200px;
+    margin: 0 auto;
 }
 
 /* Golden Halo Portal Behind Laptop */
@@ -886,19 +888,26 @@ img, svg {
 
 /* Floating "Currently Building" Card */
 .floating-building-card {
-    position: absolute;
-    top: 20px;
-    right: -10px;
+    position: relative;
+    top: auto;
+    right: auto;
     z-index: 4;
-    width: 210px;
-    background: rgba(18, 18, 22, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    width: 215px;
+    flex-shrink: 0;
+    background: rgba(14, 14, 18, 0.9);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 200, 87, 0.35);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 200, 87, 0.15);
+    padding: 16px 18px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 200, 87, 0.15);
     animation: float-card 5s ease-in-out infinite alternate;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.floating-building-card:hover {
+    border-color: rgba(255, 200, 87, 0.65);
+    transform: translateY(-4px) scale(1.02);
 }
 
 @keyframes float-card {
@@ -2127,7 +2136,21 @@ img, svg {
     }
 
     .hero-right {
-        margin-top: 20px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .laptop-scene {
+        max-width: 440px;
+        margin: 0 auto;
+    }
+
+    .floating-building-card {
+        width: 100%;
+        max-width: 290px;
+        margin: 0 auto;
     }
 
     .what-i-do-grid {
